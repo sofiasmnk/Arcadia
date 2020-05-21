@@ -1,6 +1,9 @@
 /* purgecss start ignore */
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap');
 @import 'tailwindcss/base';
+@import 'tailwindcss/components';
+/* purgecss end ignore */
+@import 'tailwindcss/utilities';
 
 body {
   @apply font-body;
@@ -14,7 +17,3 @@ a {
 a:hover {
   @apply text-green-light;
 }
-
-@import 'tailwindcss/components';
-/* purgecss end ignore */
-@import 'tailwindcss/utilities';
