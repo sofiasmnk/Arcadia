@@ -8,6 +8,7 @@
       <h2 class="subtitle">
         Protótipo para a disciplina de IUC 2020 no ICMC – USP São Carlos.
       </h2>
+      <p><a href="/">Teste</a></p>
       <div class="links">
         <a href="https://nuxtjs.org/" target="_blank" class="button--green">
           Documentation
