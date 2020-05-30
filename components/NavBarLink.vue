@@ -3,12 +3,14 @@
     v-slot="{ href, route, navigate, isActive, isExactActive }"
     :to="url"
   >
-    <div
-      class="inline-block py-8 mx-1 text-center"
+    <a
+      class="inline-block text-center mx-1  py-6 px-5"
       :class="[isExactActive && 'active-link']"
+      :href="href"
+      @click="navigate"
     >
-      <a class="py-6 px-5" :href="href" @click="navigate">{{ label }}</a>
-    </div>
+      {{ label }}
+    </a>
   </router-link>
 </template>
 
@@ -28,10 +30,9 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-div {
-  width: 100px;
-}
 a {
+  width: 100px;
+  height: 80px;
   @apply font-normal;
   @apply no-underline;
   @apply text-lg;
@@ -41,11 +42,10 @@ a:hover {
   @apply underline;
 }
 .active-link,
-div:hover {
+a:hover {
   @apply bg-white;
 }
-
-.active-link a:hover {
+.active-link:hover {
   @apply no-underline;
 }
 </style>

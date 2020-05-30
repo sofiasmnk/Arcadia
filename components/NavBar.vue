@@ -1,6 +1,6 @@
 <template>
   <div class="pt-5">
-    <div class="navbg"></div>
+    <div class="navbg" aria-hidden="true"></div>
     <div
       class="
       max-w-screen-xl mx-auto relative px-10
