@@ -9,11 +9,12 @@
       <div class="bg-white rounded-full p-5 pt-0">
         <StoreLogo class="pb-5" width="180px" />
       </div>
-      <nav>
+      <nav class="flex justify-end">
         <NavBarLink url="/" label="Início" />
         <NavBarLink url="/loja" label="Loja" />
         <NavBarLink url="/sobre" label="Sobre" />
         <NavBarLink url="/contato" label="Contato" />
+        <NavBarSearch />
       </nav>
     </div>
   </div>
@@ -22,10 +23,12 @@
 <script>
 import StoreLogo from '@/components/StoreLogo.vue'
 import NavBarLink from '@/components/NavBarLink.vue'
+import NavBarSearch from '@/components/NavBarSearch.vue'
 export default {
   components: {
     StoreLogo,
-    NavBarLink
+    NavBarLink,
+    NavBarSearch
   }
 }
 </script>
