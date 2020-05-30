@@ -3,6 +3,7 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 185.87 156.89"
     :width="width"
+    :height="width"
   >
     <path
       class="a"
