@@ -2,9 +2,7 @@
   <div class="py-5">
     <div class="navbg" aria-hidden="true"></div>
     <div
-      class="
-      max-w-screen-xl mx-auto relative px-10
-      flex justify-between align-middle items-center"
+      class="max-w-screen-xl mx-auto relative px-10 flex justify-between align-middle items-center"
     >
       <div class="bg-white rounded-full p-5 pt-0">
         <StoreLogo class="pb-5" width="180px" />
@@ -15,7 +13,6 @@
         <NavBarLink url="/sobre" label="Sobre" />
         <NavBarLink url="/contato" label="Contato" />
         <NavBarSearch />
-        <NavBarCart />
       </nav>
     </div>
   </div>
@@ -25,14 +22,12 @@
 import StoreLogo from '@/components/StoreLogo.vue'
 import NavBarLink from '@/components/NavBarLink.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
-import NavBarCart from '@/components/NavBarCart.vue'
 
 export default {
   components: {
     StoreLogo,
     NavBarLink,
-    NavBarSearch,
-    NavBarCart
+    NavBarSearch
   }
 }
 </script>
