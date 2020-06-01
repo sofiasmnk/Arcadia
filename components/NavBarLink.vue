@@ -36,16 +36,19 @@ a {
   @apply font-normal;
   @apply no-underline;
   @apply text-lg;
+  transition: 300ms;
 }
 a:hover {
   @apply text-green;
   @apply underline;
+  @apply bg-white;
+  @apply bg-opacity-50;
 }
-.active-link,
-a:hover {
+.active-link {
   @apply bg-white;
 }
 .active-link:hover {
   @apply no-underline;
+  @apply bg-opacity-100;
 }
 </style>
