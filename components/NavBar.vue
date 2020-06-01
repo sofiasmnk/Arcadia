@@ -1,21 +1,26 @@
 <template>
-  <div class="py-5">
+  <header class="py-5">
     <div class="navbg" aria-hidden="true"></div>
     <div
       class="max-w-screen-xl mx-auto relative px-10 flex justify-between align-middle items-center"
     >
       <div class="bg-white rounded-full p-5 pt-0">
-        <StoreLogo class="pb-5" width="180px" />
+        <nuxt-link to="/">
+          <StoreLogo class="pb-5" width="180px" />
+        </nuxt-link>
       </div>
+      <div class="flex-grow" aria-hidden="true"></div>
       <nav class="flex justify-end">
         <NavBarLink url="/" label="Início" />
         <NavBarLink url="/loja" label="Loja" />
         <NavBarLink url="/sobre" label="Sobre" />
         <NavBarLink url="/contato" label="Contato" />
+      </nav>
+      <nav>
         <NavBarSearch />
       </nav>
     </div>
-  </div>
+  </header>
 </template>
 
 <script>

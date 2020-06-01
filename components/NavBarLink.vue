@@ -1,5 +1,5 @@
 <template>
-  <router-link
+  <nuxt-link
     v-slot="{ href, route, navigate, isActive, isExactActive }"
     :to="url"
   >
@@ -11,7 +11,7 @@
     >
       {{ label }}
     </a>
-  </router-link>
+  </nuxt-link>
 </template>
 
 <script>
