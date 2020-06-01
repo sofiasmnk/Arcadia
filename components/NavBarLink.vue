@@ -4,6 +4,7 @@
     :to="url"
   >
     <a
+      tabindex="-1"
       class="inline-block text-center mx-1  py-6 px-5"
       :class="[isExactActive && 'active-link']"
       :href="href"

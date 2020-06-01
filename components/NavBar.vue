@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5">
+  <div class="py-5">
     <div class="navbg" aria-hidden="true"></div>
     <div
       class="
@@ -15,6 +15,7 @@
         <NavBarLink url="/sobre" label="Sobre" />
         <NavBarLink url="/contato" label="Contato" />
         <NavBarSearch />
+        <NavBarCart />
       </nav>
     </div>
   </div>
@@ -24,11 +25,14 @@
 import StoreLogo from '@/components/StoreLogo.vue'
 import NavBarLink from '@/components/NavBarLink.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
+import NavBarCart from '@/components/NavBarCart.vue'
+
 export default {
   components: {
     StoreLogo,
     NavBarLink,
-    NavBarSearch
+    NavBarSearch,
+    NavBarCart
   }
 }
 </script>
