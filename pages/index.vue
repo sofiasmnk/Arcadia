@@ -1,7 +1,7 @@
 <template>
   <main>
-    <section class="flex max-w-screen-xl mx-auto relative px-10">
-      <p class="w-2/6">
+    <section class="flex flex-wrap container mx-auto relative px-10">
+      <p class="w-full lg:w-1/2 pb-8 lg:pr-8">
         <span class="text-lg font-semibold">
           Nós somos lorem ipsum dolor sit amet,
         </span>
@@ -9,28 +9,29 @@
         fermentum dolor, ac imperdiet nisi rhoncus a. Pellentesque scelerisque
         consequat gravida. Duis enim mauris, finibus id rhoncus quis, tristique.
       </p>
-      <div class="w-4/6 bg-gray-400 h-20 ml-4"></div>
+      <img
+        class="w-full lg:w-1/2 h-48 lg:h-64 object-cover object-top rounded over"
+        src="~assets/img/home.jpg"
+        alt=""
+      />
     </section>
-    <hr class="my-10" />
-    <section class="flex flex-wrap max-w-screen-xl mx-auto relative px-10">
-      <p class="w-1/6 mx-4 my-4">
+
+    <hr class="my-10" aria-hidden="true" />
+
+    <section class="flex flex-wrap container mx-auto relative px-6 -m-4">
+      <p class="w-1/2 xl:w-1/4 p-4">
         <span class="text-lg font-semibold">
           Explore nossos produtos,
         </span>
         consectetur adipiscing elit. Aliquam sit amet rutrum quam. Fusce egestas
         fermentum dolor, ac imperdiet nisi rhoncus a.
       </p>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
-      <div class="w-1/6 bg-gray-400 mx-4 my-4 py-20"></div>
+      <div v-for="index in 7" :key="index" class="w-1/2 xl:w-1/4 p-4">
+        <ProductCard />
+      </div>
     </section>
-    <hr class="my-10" />
+
+    <hr class="my-10 border-brown-lighter" aria-hidden="true" />
   </main>
 </template>
 

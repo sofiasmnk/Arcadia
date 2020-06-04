@@ -2,7 +2,7 @@
   <header class="py-5" aria-label="Cabeçalho">
     <div class="navbg h-20" aria-hidden="true"></div>
     <div
-      class="max-w-screen-xl mx-auto relative px-5 flex justify-between align-middle items-center"
+      class="container mx-auto relative px-5 flex justify-between align-middle items-center"
     >
       <div class="bg-white rounded-full p-5 pt-0 order-2 lg:order-1">
         <nuxt-link to="/">
@@ -18,7 +18,7 @@
       >
         <button class="lg:hidden">Menu</button>
         <div
-          class="absolute z-50 w-full bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0"
+          class="absolute hidden lg:block z-50 w-full bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0"
         >
           <NavBarLink url="/" label="Início" />
           <NavBarLink url="/loja" label="Loja" />
@@ -38,19 +38,7 @@
 </template>
 
 <script>
-import StoreLogo from '@/components/StoreLogo.vue'
-import NavBarLink from '@/components/NavBarLink.vue'
-import NavBarSearch from '@/components/NavBarSearch.vue'
-import NavBarCart from '@/components/NavBarCart.vue'
-
-export default {
-  components: {
-    StoreLogo,
-    NavBarLink,
-    NavBarSearch,
-    NavBarCart
-  }
-}
+export default {}
 </script>
 
 <style lang="pcss" scoped>

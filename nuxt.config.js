@@ -1,5 +1,6 @@
 export default {
   mode: 'universal',
+  components: true,
   /*
    ** Headers of the page
    */
@@ -46,7 +47,8 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    '@nuxt/components'
   ],
   /*
    ** Build configuration
