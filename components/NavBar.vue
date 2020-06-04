@@ -1,24 +1,38 @@
 <template>
-  <header class="py-5">
-    <div class="navbg" aria-hidden="true"></div>
+  <header class="py-5" aria-label="Cabeçalho">
+    <div class="navbg h-20" aria-hidden="true"></div>
     <div
-      class="max-w-screen-xl mx-auto relative px-10 flex justify-between align-middle items-center"
+      class="max-w-screen-xl mx-auto relative px-5 flex justify-between align-middle items-center"
     >
-      <div class="bg-white rounded-full p-5 pt-0">
+      <div class="bg-white rounded-full p-5 pt-0 order-2 lg:order-1">
         <nuxt-link to="/">
           <StoreLogo class="pb-5" width="180px" />
         </nuxt-link>
       </div>
-      <div class="flex-grow" aria-hidden="true"></div>
-      <nav class="flex justify-end">
-        <NavBarLink url="/" label="Início" />
-        <NavBarLink url="/loja" label="Loja" />
-        <NavBarLink url="/sobre" label="Sobre" />
-        <NavBarLink url="/contato" label="Contato" />
+      <div
+        class="flex-grow hidden lg:block lg:order-2"
+        aria-hidden="true"
+      ></div>
+      <nav
+        class="flex justify-start lg:justify-end order-1 lg:order-3 w-64 lg:w-auto"
+      >
+        <button class="lg:hidden">Menu</button>
+        <div
+          class="absolute z-50 w-full bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0"
+        >
+          <NavBarLink url="/" label="Início" />
+          <NavBarLink url="/loja" label="Loja" />
+          <NavBarLink url="/sobre" label="Sobre" />
+          <NavBarLink url="/contato" label="Contato" />
+        </div>
       </nav>
-      <nav>
+      <div
+        class="flex justify-end order-3 lg:order-4 w-64 lg:w-auto"
+        aria-label="Ferramentas"
+      >
         <NavBarSearch />
-      </nav>
+        <NavBarCart />
+      </div>
     </div>
   </header>
 </template>
@@ -27,12 +41,14 @@
 import StoreLogo from '@/components/StoreLogo.vue'
 import NavBarLink from '@/components/NavBarLink.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
+import NavBarCart from '@/components/NavBarCart.vue'
 
 export default {
   components: {
     StoreLogo,
     NavBarLink,
-    NavBarSearch
+    NavBarSearch,
+    NavBarCart
   }
 }
 </script>
@@ -42,7 +58,6 @@ export default {
   @apply bg-green-lighter;
   @apply w-screen;
   @apply absolute;
-  height: 80px;
   margin-top: 60px;
 }
 </style>

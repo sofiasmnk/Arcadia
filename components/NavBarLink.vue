@@ -4,7 +4,7 @@
     :to="url"
   >
     <a
-      class="inline-block text-center mx-1  py-6 px-5"
+      class="inline-block text-center mx-1 py-6 px-5 h-20 w-full lg:w-24"
       :class="[isExactActive && 'active-link']"
       :href="href"
       @click="navigate"
@@ -31,8 +31,6 @@ export default {
 
 <style lang="postcss" scoped>
 a {
-  width: 100px;
-  height: 80px;
   @apply font-normal;
   @apply no-underline;
   @apply text-lg;
