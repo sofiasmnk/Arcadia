@@ -1,10 +1,10 @@
 <template>
-  <header class="py-5" aria-label="Cabeçalho">
+  <header class="py-5 relative" aria-label="Cabeçalho">
     <div class="navbg h-20" aria-hidden="true"></div>
     <div
-      class="container mx-auto relative px-5 flex justify-between align-middle items-center"
+      class="container mx-auto px-5 flex justify-between align-middle items-center"
     >
-      <div class="bg-white rounded-full p-5 pt-0 order-2 lg:order-1">
+      <div class="bg-white rounded-full p-5 pt-0 order-2 lg:order-1 z-40">
         <nuxt-link to="/">
           <StoreLogo class="pb-5" width="180px" />
         </nuxt-link>
@@ -14,11 +14,12 @@
         aria-hidden="true"
       ></div>
       <nav
-        class="flex justify-start lg:justify-end order-1 lg:order-3 w-64 lg:w-auto"
+        class="flex justify-start lg:justify-end order-1 lg:order-3 w-64 lg:w-auto  z-50"
       >
-        <button class="lg:hidden">Menu</button>
+        <button class="lg:hidden" @click="toggleMenu">Menu</button>
         <div
-          class="absolute hidden lg:block z-50 w-full bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0"
+          class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0  z-50"
+          :class="[menuOpen ? 'block' : 'hidden']"
         >
           <NavBarLink url="/" label="Início" />
           <NavBarLink url="/loja" label="Loja" />
@@ -38,7 +39,18 @@
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      menuOpen: false
+    }
+  },
+  methods: {
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen
+    }
+  }
+}
 </script>
 
 <style lang="pcss" scoped>

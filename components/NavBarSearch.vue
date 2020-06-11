@@ -3,15 +3,19 @@
     id="buscar-nav-container"
     class="relative flex justify-center px-5 mx-1 "
     :class="[open ? 'bg-white bg-opacity-100' : 'bg-green-light bg-opacity-25']"
-    @mouseover="openSearch"
-    @mouseleave="closeSearch"
-    @click.self="focus"
+    @mouseover="openSearch()"
+    @mouseleave="
+      if (!focus) {
+        closeSearch()
+      }
+    "
+    @click.self="focusSearch()"
   >
     <IconSearch
       class="absolute h-6 w-6 text-green fill-current self-center opacity-100 z-50"
       :class="[open ? 'svg-open' : 'svg-closed']"
       aria-hidden="true"
-      @click="focus"
+      @click="focusSearch()"
     />
     <div
       class="text-center flex-shrink"
@@ -25,8 +29,14 @@
           name="Buscar"
           placeholder="Buscar"
           aria-label="Buscar no site"
-          @focus="openSearch"
-          @blur="closeSearch"
+          @focus="
+            openSearch()
+            focus = true
+          "
+          @blur="
+            closeSearch()
+            focus = false
+          "
         />
         <input class="sr-only" type="submit" value="Buscar" tabindex="-1" />
       </form>
@@ -38,14 +48,15 @@
 export default {
   data() {
     return {
-      open: false
+      open: false,
+      focus: false
     }
   },
   methods: {
     toggleSearch() {
       this.open = !this.open
     },
-    focus() {
+    focusSearch() {
       document.getElementById('buscar-nav').focus()
     },
     openSearch() {
@@ -62,7 +73,7 @@ export default {
 #buscar-nav-container {
   height: 80px;
   min-width: 100px;
-  transition: 600ms;
+  transition: 500ms;
 }
 #buscar-nav-container:hover {
   cursor: pointer;
@@ -73,31 +84,31 @@ input::placeholder {
 
 .svg-open {
   transform: translate(65px);
-  transition: 600ms;
+  transition: 500ms;
 }
 .svg-closed {
   transform: translate(0px);
-  transition: 600ms;
+  transition: 500ms;
 }
 
 .buscar-nav-closed {
   transform: scale(0, 1);
   opacity: 0;
   width: 0;
-  transition: 600ms;
+  transition: 500ms;
 }
 .buscar-nav-closed input {
   width: 0px;
-  transition: 600ms;
+  transition: 500ms;
 }
 .buscar-nav-open {
   transform: scale(1, 1);
   opacity: 100;
   width: 180px;
-  transition: 600ms;
+  transition: 500ms;
 }
 .buscar-nav-open input {
   width: 180px;
-  transition: 600ms;
+  transition: 500ms;
 }
 </style>
