@@ -26,6 +26,7 @@
         </h2>
         consectetur adipiscing elit. Aliquam sit amet rutrum quam. Fusce egestas
         fermentum dolor, ac imperdiet nisi rhoncus a.
+        <BaseButton class="block mt-3">Ir para loja</BaseButton>
       </div>
       <div v-for="index in 7" :key="index" class="w-1/2 xl:w-1/4 p-4">
         <ProductCard />

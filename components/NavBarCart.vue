@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div class="relative">
     <button
       id="carrinho-nav-container"
       aria-label="Carrinho de compras"
-      class="relative flex justify-center px-5 mx-1"
+      class="relative flex justify-center px-5 mx-1 transition duration-200"
       :class="[
         open
           ? 'button-open bg-white bg-opacity-100'
@@ -17,15 +17,12 @@
         :class="[open ? 'svg-open' : 'svg-closed']"
       />
     </button>
-    <div
+    <NavBarCartInner
       v-show="open"
+      id="inner"
       aria-live="polite"
-      class="absolute text-center bg-white border"
       :class="[open ? 'carrinho-nav-open' : 'carrinho-nav-closed']"
-    >
-      carrinho
-      <button>botão</button>
-    </div>
+    />
   </div>
 </template>
 
@@ -48,12 +45,14 @@ export default {
 #carrinho-nav-container {
   height: 80px;
   min-width: 100px;
-  transition: 300ms;
 }
 
-button.button-closed:hover {
+#carrinho-nav-container.button-closed:hover {
   @apply bg-opacity-50;
 }
-button.button-open:hover {
+
+#inner {
+  @apply absolute text-center bg-white border border-t-0 shadow-md right-0 mx-1;
+  min-width: 500px;
 }
 </style>
