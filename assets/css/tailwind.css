@@ -17,3 +17,7 @@ a {
     @apply text-green-light;
   }
 }
+
+input::placeholder {
+  @apply text-green;
+}

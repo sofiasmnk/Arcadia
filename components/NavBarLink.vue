@@ -4,7 +4,7 @@
     :to="url"
   >
     <a
-      class="nav-link inline-block text-center mx-1 py-6 px-5 h-20 w-full lg:w-24"
+      class="nav-link inline-block text-center lg:mx-1 py-6 px-5 h-20 w-full lg:w-24"
       :class="{ 'active-link': isExactActive }"
       :href="href"
       @click="navigate"

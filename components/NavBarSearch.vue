@@ -1,8 +1,11 @@
 <template>
   <div
-    id="buscar-nav-container"
-    class="relative flex justify-center px-5 mx-1 "
-    :class="[open ? 'bg-white bg-opacity-100' : 'bg-green-light bg-opacity-25']"
+    class="h-20 relative flex justify-center px-5 mx-1 cursor-pointer transition-all duration-300"
+    :class="[
+      open
+        ? 'bg-white bg-opacity-100 w-56'
+        : 'bg-green-light bg-opacity-25 w-24'
+    ]"
     @mouseover="openSearch()"
     @mouseleave="
       if (!focus) {
@@ -75,45 +78,34 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-#buscar-nav-container {
-  height: 80px;
-  min-width: 100px;
-  transition: 500ms;
-}
-#buscar-nav-container:hover {
-  cursor: pointer;
-}
-input::placeholder {
-  @apply text-green;
-}
-
 .svg-open {
   transform: translate(65px);
-  transition: 500ms;
+  transition: 300ms;
 }
 .svg-closed {
   transform: translate(0px);
-  transition: 500ms;
+  transition: 300ms;
 }
 
 .buscar-nav-closed {
   transform: scale(0, 1);
   opacity: 0;
   width: 0;
-  transition: 500ms;
+  transition: 300ms;
+  & input {
+    width: 0px;
+    transition: 300ms;
+  }
 }
-.buscar-nav-closed input {
-  width: 0px;
-  transition: 500ms;
-}
+
 .buscar-nav-open {
   transform: scale(1, 1);
   opacity: 100;
   width: 180px;
-  transition: 500ms;
-}
-.buscar-nav-open input {
-  width: 180px;
-  transition: 500ms;
+  transition: 300ms;
+  & input {
+    width: 180px;
+    transition: 300ms;
+  }
 }
 </style>

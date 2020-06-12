@@ -1,7 +1,7 @@
 <template>
   <div
     class="relative border border-brown-lighter rounded
-    cursor-pointer transition duration-200 shadow-md hover:shadow-xl"
+    cursor-pointer transition duration-200 hover:shadow-md"
   >
     <img
       class="h-32 w-full object-cover rounded rounded-b-none "

@@ -1,37 +1,28 @@
 <template>
-  <header class="py-5 relative" aria-label="Cabeçalho">
+  <header class="lg:py-5" aria-label="Cabeçalho">
     <div class="navbg h-20" aria-hidden="true"></div>
     <div
-      class="container mx-auto px-5 flex justify-between align-middle items-center"
+      class="container mx-auto sm:px-5 flex justify-around sm:justify-between align-middle items-center"
     >
-      <div class="bg-white rounded-full p-5 pt-0 order-2 lg:order-1 z-40">
-        <nuxt-link to="/">
-          <StoreLogo class="pb-5" width="180px" />
-        </nuxt-link>
+      <div class="order-2 lg:order-1 relative mt-2">
+        <div
+          class="bg-white rounded-full h-48 w-48 p-5 pt-0 flex justify-center z-50"
+        >
+          <nuxt-link class="self-center -mt-5" to="/">
+            <StoreLogo class="h-40 w-40" />
+          </nuxt-link>
+        </div>
       </div>
       <div
         class="flex-grow hidden lg:block lg:order-2"
         aria-hidden="true"
       ></div>
-      <nav
-        class="flex justify-start lg:justify-end order-1 lg:order-3 w-64 lg:w-auto  z-50"
-      >
-        <button class="lg:hidden" @click="toggleMenu">Menu</button>
-        <div
-          class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-20 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0  z-50"
-          :class="[menuOpen ? 'block' : 'hidden']"
-        >
-          <NavBarLink url="/" label="Início" />
-          <NavBarLink url="/loja" label="Loja" />
-          <NavBarLink url="/sobre" label="Sobre" />
-          <NavBarLink url="/contato" label="Contato" />
-        </div>
-      </nav>
+      <NavBarMenu />
       <div
-        class="flex justify-end order-3 lg:order-4 w-64 lg:w-auto"
+        class="flex justify-center sm:justify-end order-3 lg:order-4 w-64 lg:w-auto"
         aria-label="Ferramentas"
       >
-        <NavBarSearch />
+        <NavBarSearch class="hidden lg:flex" />
         <NavBarCart />
       </div>
     </div>
@@ -40,26 +31,16 @@
 
 <script>
 import StoreLogo from '@/components/StoreLogo.vue'
-import NavBarLink from '@/components/NavBarLink.vue'
+import NavBarMenu from '@/components/NavBarMenu.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
 import NavBarCart from '@/components/NavBarCart.vue'
 
 export default {
   components: {
     StoreLogo,
-    NavBarLink,
+    NavBarMenu,
     NavBarSearch,
     NavBarCart
-  },
-  data() {
-    return {
-      menuOpen: false
-    }
-  },
-  methods: {
-    toggleMenu() {
-      this.menuOpen = !this.menuOpen
-    }
   }
 }
 </script>
