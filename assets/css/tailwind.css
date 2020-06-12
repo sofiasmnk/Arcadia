@@ -11,7 +11,7 @@ body {
 
 a {
   @apply text-green;
-  @apply font-bold;
+  @apply font-semibold;
   @apply underline;
   &:hover {
     @apply text-green-light;
@@ -20,4 +20,8 @@ a {
 
 input::placeholder {
   @apply text-green;
+}
+
+input[type='number'] {
+  appearance: textfield;
 }

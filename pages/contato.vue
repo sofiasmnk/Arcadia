@@ -2,7 +2,7 @@
   <main>
     <BaseBreadcrumbs>
       <li><nuxt-link to="/">Início</nuxt-link></li>
-      <li>Loja</li>
+      <li>Contato</li>
     </BaseBreadcrumbs>
     <section class="flex flex-wrap container mx-auto relative px-8">
       <div class="w-full lg:w-1/2 pb-8 lg:pr-8">
