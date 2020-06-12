@@ -39,7 +39,18 @@
 </template>
 
 <script>
+import StoreLogo from '@/components/StoreLogo.vue'
+import NavBarLink from '@/components/NavBarLink.vue'
+import NavBarSearch from '@/components/NavBarSearch.vue'
+import NavBarCart from '@/components/NavBarCart.vue'
+
 export default {
+  components: {
+    StoreLogo,
+    NavBarLink,
+    NavBarSearch,
+    NavBarCart
+  },
   data() {
     return {
       menuOpen: false

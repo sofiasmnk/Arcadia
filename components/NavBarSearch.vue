@@ -45,7 +45,12 @@
 </template>
 
 <script>
+import IconSearch from '@/components/IconSearch.vue'
+
 export default {
+  components: {
+    IconSearch
+  },
   data() {
     return {
       open: false,

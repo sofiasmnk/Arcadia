@@ -27,7 +27,14 @@
 </template>
 
 <script>
+import IconCart from '@/components/IconCart.vue'
+import NavBarCartInner from '@/components/NavBarCartInner.vue'
+
 export default {
+  components: {
+    IconCart,
+    NavBarCartInner
+  },
   data() {
     return {
       open: false
@@ -53,6 +60,7 @@ export default {
 
 #inner {
   @apply absolute text-center bg-white border border-t-0 shadow-md right-0 mx-1;
-  min-width: 500px;
+  min-width: 30rem;
+  max-width: 100vw;
 }
 </style>

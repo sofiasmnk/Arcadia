@@ -40,7 +40,13 @@
 </template>
 
 <script>
-export default {}
-</script>
+import IconCart from '@/components/IconCart.vue'
+import StarRating from '@/components/StarRating.vue'
 
-<style lang="postcss" scoped></style>
+export default {
+  components: {
+    IconCart,
+    StarRating
+  }
+}
+</script>

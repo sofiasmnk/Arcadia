@@ -4,8 +4,8 @@
     :to="url"
   >
     <a
-      class="inline-block text-center mx-1 py-6 px-5 h-20 w-full lg:w-24"
-      :class="[isExactActive && 'active-link']"
+      class="nav-link inline-block text-center mx-1 py-6 px-5 h-20 w-full lg:w-24"
+      :class="{ 'active-link': isExactActive }"
       :href="href"
       @click="navigate"
     >
@@ -30,23 +30,16 @@ export default {
 </script>
 
 <style lang="postcss" scoped>
-a {
-  @apply font-normal;
-  @apply no-underline;
-  @apply text-lg;
-  transition: 300ms;
+.nav-link {
+  @apply font-normal no-underline text-lg transition duration-200;
 }
-a:hover {
-  @apply text-green;
-  @apply underline;
-  @apply bg-white;
-  @apply bg-opacity-50;
+.nav-link:hover {
+  @apply text-green underline bg-white bg-opacity-50;
 }
 .active-link {
   @apply bg-white;
 }
 .active-link:hover {
-  @apply no-underline;
-  @apply bg-opacity-100;
+  @apply no-underline bg-opacity-100;
 }
 </style>

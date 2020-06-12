@@ -38,7 +38,17 @@
 </template>
 
 <script>
-export default {}
+import BaseSeparator from '@/components/BaseSeparator.vue'
+import BaseButton from '@/components/BaseButton.vue'
+import ProductCard from '@/components/ProductCard.vue'
+
+export default {
+  components: {
+    BaseSeparator,
+    BaseButton,
+    ProductCard
+  }
+}
 </script>
 
 <style lang="pcss"></style>

@@ -13,7 +13,7 @@ a {
   @apply text-green;
   @apply font-bold;
   @apply underline;
-}
-a:hover {
-  @apply text-green-light;
+  &:hover {
+    @apply text-green-light;
+  }
 }
