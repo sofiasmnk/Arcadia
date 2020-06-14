@@ -1,7 +1,7 @@
 <template>
   <svg
-    xmlns="http://www.w3.org/2000/svg"
     id="Camada_1"
+    xmlns="http://www.w3.org/2000/svg"
     data-name="Camada 1"
     viewBox="0 0 389.3 389.2"
   >

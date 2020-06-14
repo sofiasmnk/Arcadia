@@ -1,10 +1,8 @@
 <template>
   <div
-    id="inner"
-    class="absolute border border-t-0 shadow-md right-0 sm:mr-1 w-screen sm:w-auto"
+    class="z-50 bg-white absolute border border-t-0 shadow-md right-0 lg:mr-1 w-screen lg:w-auto mt-6 lg:mt-0"
   >
-    <div class="h-4" aria-hidden="true"></div>
-    <div class="bg-white p-5 pt-0 relative z-50">
+    <div class="p-5 pt-3 container mx-auto relative">
       <ol class="divide-y divide-brown-lighter">
         <li v-for="index in 3" :key="index" class="flex text-left py-4">
           <div class="w-24 p-1 bg-green-lighter border shadow-sm">

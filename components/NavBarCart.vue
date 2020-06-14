@@ -1,5 +1,5 @@
 <template>
-  <div class="sm:relative">
+  <div class="lg:relative">
     <button
       aria-label="Carrinho de compras"
       class="h-20 w-16 sm:w-24 relative flex justify-center sm:mx-1 transition duration-200"
@@ -16,11 +16,15 @@
         :class="[open ? 'svg-open' : 'svg-closed']"
       />
     </button>
-    <NavBarCartInner
-      v-show="open"
-      aria-live="polite"
-      :class="[open ? 'carrinho-nav-open' : 'carrinho-nav-closed']"
-    />
+    <transition name="dropdown">
+      <NavBarCartInner
+        v-show="open"
+        role="dialog"
+        aria-labelledby="Carrinho de compras"
+        aria-describedby="3 items"
+        class="origin-top"
+      />
+    </transition>
   </div>
 </template>
 

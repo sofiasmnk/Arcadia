@@ -14,7 +14,7 @@
       <IconMenu class="h-6 w-6 text-green fill-current self-center" />
     </button>
     <div
-      class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-24 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0"
+      class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-24 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0 origin-top"
       :class="[open ? 'block' : 'hidden']"
     >
       <NavBarLink url="/" label="Início" />
@@ -46,5 +46,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss" scoped></style>
