@@ -3,7 +3,7 @@
     class="border border-green-light rounded w-24 flex justify-center overflow-hidden"
   >
     <input
-      v-model="quantity"
+      v-model.number="quantity"
       class="w-12 text-center order-2"
       type="number"
       name="p-count"

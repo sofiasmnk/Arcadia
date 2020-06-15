@@ -37,12 +37,12 @@
 
       <div class="flex mt-5">
         <div class="w-1/2 pr-2">
-          <BaseButton class="w-full" type-secondary="true" size-small="true">
+          <BaseButton class="w-full" :type-secondary="true" :size-small="true">
             Ver carrinho
           </BaseButton>
         </div>
         <div class="w-1/2 pl-2">
-          <BaseButton class="w-full" size-small="true">
+          <BaseButton class="w-full" :size-small="true">
             Finalizar compra
           </BaseButton>
         </div>
