@@ -37,8 +37,12 @@
         fermentum dolor, ac imperdiet nisi rhoncus a.
         <BaseButton class="block mt-3">Ir para loja</BaseButton>
       </div>
-      <div v-for="index in 7" :key="index" class="w-1/2 xl:w-1/4 p-4">
-        <ProductCard />
+      <div
+        v-for="product in pinnedProducts"
+        :key="product.id"
+        class="w-1/2 xl:w-1/4 p-4"
+      >
+        <ProductCard :product="product" />
       </div>
     </BaseSection>
 
@@ -47,6 +51,8 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 import BaseSeparator from '@/components/BaseSeparator.vue'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseSection from '@/components/BaseSection.vue'
@@ -64,8 +70,11 @@ export default {
     CertLeapingBunny,
     CertEcoCert,
     CertVegano
+  },
+  computed: {
+    ...mapGetters({
+      pinnedProducts: 'products/getPinned'
+    })
   }
 }
 </script>
-
-<style lang="pcss"></style>

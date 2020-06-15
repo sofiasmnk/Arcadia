@@ -1,7 +1,7 @@
 <template>
   <section class="container mx-auto relative p-4">
     <h1 class="inline-block text-xl font-bold p-4">
-      Categoria
+      {{ categoryName }}
     </h1>
     <button
       class="see-all-button"
@@ -14,11 +14,11 @@
     <div class="loja-product-list flex flex-wrap">
       <transition-group name="list" tag="div">
         <div
-          v-for="index in quantity"
-          :key="index"
+          v-for="product in listByQuantity"
+          :key="product.id"
           class="w-1/2 xl:w-1/4 p-4 list-item"
         >
-          <ProductCard />
+          <ProductCard :product="product" />
         </div>
       </transition-group>
     </div>
@@ -35,6 +35,12 @@ export default {
     categoryName: {
       type: String,
       default: 'Categoria'
+    },
+    productList: {
+      type: Array,
+      default() {
+        return []
+      }
     }
   },
   data() {
@@ -46,6 +52,9 @@ export default {
     quantity() {
       if (this.open) return 8
       else return 4
+    },
+    listByQuantity() {
+      return this.productList.slice(0, this.quantity)
     }
   }
 }

@@ -16,12 +16,12 @@ export const mutations = {
 
 export const actions = {
   addItemToCart({ state, commit }, { id, quantity }) {
-    const index = state.shoppingCart.findIndex((item) => item.id.equals(id))
+    const index = state.shoppingCart.findIndex((item) => item.id === id)
     if (index === -1) commit('ADD_TO_CART', { id, quantity })
     else commit('CHANGE_QUANTITY', { index, quantity })
   },
   changeItemQuantity({ state, commit }, { id, quantity }) {
-    const index = state.shoppingCart.findIndex((item) => item.id.equals(id))
+    const index = state.shoppingCart.findIndex((item) => item.id === id)
     commit('CHANGE_QUANTITY', { index, quantity })
   }
 }

@@ -1,31 +1,38 @@
 <template>
   <div
-    class="relative border border-brown-lighter rounded
+    class="product-card relative border border-brown-lighter rounded
     cursor-pointer transition duration-200 hover:shadow-md"
   >
+    <div
+      aria-hidden="true"
+      class="absolute h-full w-full rounded"
+      @click="navigate()"
+    ></div>
     <img
       class="h-32 w-full object-cover rounded rounded-b-none "
-      src="~assets/img/produtos/produto-01.png"
+      :src="imgUrl"
       alt=""
     />
-    <div class="p-4">
-      <h5 class="text-lg">
-        <a
-          href="/"
+    <div class="p-4 relative">
+      <h5 class="text-lg z-50">
+        <nuxt-link
+          :to="`/loja/produtos/${product.id}`"
           class="text-black font-semibold no-underline hover:underline hover:text-black"
-          >Nome do produto</a
         >
+          {{ product.name }}
+        </nuxt-link>
       </h5>
       <div class="flex items-center mt-3">
         <span
           class="rounded inline-block px-2 py-1 bg-brown-lighter font-semibold"
         >
-          R$25,00
+          {{ formattedPrice }}
         </span>
         <StarRating class="pl-4 text-brown" />
       </div>
     </div>
     <button
+      :aria-label="buttonLabel"
       class="absolute right-0 -mt-5 mr-5 z-40
       flex p-2 bg-green rounded-full
       transition duration-200 hover:bg-green-light"
@@ -34,7 +41,6 @@
         aria-hidden="true"
         class="h-6 w-6 text-white fill-current self-center"
       />
-      <span class="sr-only">Adicionar ao carrinho</span>
     </button>
   </div>
 </template>
@@ -47,6 +53,45 @@ export default {
   components: {
     IconCart,
     StarRating
+  },
+  props: {
+    product: {
+      type: Object,
+      default() {
+        return {
+          name: 'Nome do produto',
+          price: 0.0
+        }
+      }
+    }
+  },
+  computed: {
+    formattedPrice() {
+      const reais = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      })
+      return reais.format(this.product.price)
+    },
+    imgUrl() {
+      return require(`~/assets/img/produtos/${this.product.id}.jpg`)
+    },
+    buttonLabel() {
+      return `Adicionar ${this.product.name} ao carrinho`
+    }
+  },
+  methods: {
+    navigate() {
+      this.$router.push({
+        path: `/loja/produtos/${this.product.id}`
+      })
+    }
   }
 }
 </script>
+
+<style lang="postcss">
+.product-card:hover a {
+  @apply underline;
+}
+</style>
