@@ -14,7 +14,7 @@
       alt=""
     />
     <div class="p-4 relative">
-      <h5 class="text-lg z-50">
+      <h5 class="text-lg z-50 truncate">
         <nuxt-link
           :to="`/loja/produtos/${product.id}`"
           class="text-black font-semibold no-underline hover:underline hover:text-black"
@@ -36,6 +36,7 @@
       class="absolute right-0 -mt-5 mr-5 z-40
       flex p-2 bg-green rounded-full
       transition duration-200 hover:bg-green-light"
+      @click="addProductToCart()"
     >
       <IconCart
         aria-hidden="true"
@@ -46,6 +47,8 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 import IconCart from '@/components/IconCart.vue'
 import StarRating from '@/components/StarRating.vue'
 
@@ -81,6 +84,10 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['addItemToCart']),
+    addProductToCart() {
+      this.addItemToCart({ id: this.product.id, quantity: 1 })
+    },
     navigate() {
       this.$router.push({
         path: `/loja/produtos/${this.product.id}`

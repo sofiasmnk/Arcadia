@@ -1,6 +1,6 @@
 <template>
   <button
-    class="font-semibold transition duration-200 shadow-sm"
+    class="font-semibold transition duration-200 shadow-sm focus:shadow-outline"
     :class="[
       typeSecondary
         ? 'bg-white text-green border-green-light border-2 rounded-md hover:bg-green-lighter'

@@ -1,42 +1,29 @@
 <template>
   <div
-    class="z-50 bg-white absolute border border-t-0 shadow-md right-0 lg:right-1 w-screen lg:w-auto mt-6 lg:mt-0"
+    class="z-50 bg-white absolute border border-t-0 shadow-md right-0 lg:mr-1 w-screen lg:w-auto mt-6 lg:mt-0"
   >
     <div class="p-5 pt-3 container mx-auto relative">
       <ol class="divide-y divide-brown-lighter">
+        <li v-if="shoppingCart.length === 0">
+          <div class="w-full flex py-4 justify-center">
+            <div class="w-12"></div>
+            <div class="w-64 text-center">O carrinho está vazio</div>
+            <div class="w-12"></div>
+          </div>
+        </li>
         <li
-          v-for="item in itemList"
-          :key="item.product.id"
+          v-for="(item, index) in itemList"
+          :key="index"
           class="flex text-left py-4"
         >
-          <div class="w-24 p-1 bg-green-lighter border shadow-sm">
-            <img
-              src="~/assets/img/produtos/1.jpg"
-              class="h-full w-full object-cover"
-              alt=""
-            />
-          </div>
-          <div class="flex-grow flex flex-col justify-between w-64 pl-3">
-            <div class="flex justify-between items-start">
-              <div>Nome do produto Nome do produto Nome do produto</div>
-              <div>
-                <button class="mt-1">
-                  <IconClose class="text-green fill-current h-6 w-6 " />
-                </button>
-              </div>
-            </div>
-            <div class="flex justify-between items-center">
-              <ProductCount class="my-1 h-8" />
-              <span class="font-semibold">R$25,00</span>
-            </div>
-          </div>
+          <NavBarCartItem :item="item" :item-index="index" />
         </li>
       </ol>
 
       <hr class="mb-4 border-brown-lighter" aria-hidden="true" />
 
       <div class="text-right text-lg">
-        Total: <span class="font-semibold">R$25,00</span>
+        Total: <span class="font-semibold">{{ formattedTotal }}</span>
       </div>
 
       <div class="flex mt-5">
@@ -67,14 +54,12 @@
 import { mapState, mapGetters } from 'vuex'
 
 import BaseButton from '@/components/BaseButton.vue'
-import ProductCount from '@/components/ProductCount.vue'
-import IconClose from '@/components/IconClose.vue'
+import NavBarCartItem from '@/components/NavBarCartItem.vue'
 
 export default {
   components: {
     BaseButton,
-    ProductCount,
-    IconClose
+    NavBarCartItem
   },
   computed: {
     ...mapState(['shoppingCart']),
@@ -90,12 +75,19 @@ export default {
       })
     },
     total() {
-      return this.shoppingCart.reduce((totalPrice, currentItem) => {
-        return totalPrice + currentItem.price
+      let total = 0
+      this.itemList.forEach(
+        (item) => (total += item.product.price * item.quantity)
+      )
+      return total
+    },
+    formattedTotal() {
+      const reais = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
       })
+      return reais.format(this.total)
     }
   }
 }
 </script>
-
-<style lang="postcss" scoped></style>

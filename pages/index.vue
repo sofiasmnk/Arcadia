@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main class="overflow-hidden">
     <BaseSection>
       <div class="w-full lg:w-1/2 px-4 pb-8">
         <h2 class="inline text-lg font-semibold">
@@ -29,24 +29,33 @@
     <BaseSeparator />
 
     <BaseSection>
-      <div class="w-1/2 xl:w-1/4 p-4">
+      <div class="w-full p-4 pb-6 mb-4">
+        <ProductCarousel class="lg:hidden" :product-list="pinnedProducts" />
+      </div>
+
+      <div class="w-full lg:w-1/2 xl:w-1/4 p-4">
         <h2 class="inline text-lg font-semibold">
           Explore nossos produtos,
         </h2>
         consectetur adipiscing elit. Aliquam sit amet rutrum quam. Fusce egestas
         fermentum dolor, ac imperdiet nisi rhoncus a.
-        <BaseButton class="block mt-3">Ir para loja</BaseButton>
+        <BaseButton class="block mt-3 w-full lg:w-auto"
+          >Ir para loja</BaseButton
+        >
       </div>
+
       <div
         v-for="product in pinnedProducts"
         :key="product.id"
-        class="w-1/2 xl:w-1/4 p-4"
+        class="hidden lg:block w-1/2 xl:w-1/4 p-4"
       >
         <ProductCard :product="product" />
       </div>
     </BaseSection>
 
     <BaseSeparator />
+
+    <BaseSection> </BaseSection>
   </main>
 </template>
 
@@ -57,6 +66,7 @@ import BaseSeparator from '@/components/BaseSeparator.vue'
 import BaseButton from '@/components/BaseButton.vue'
 import BaseSection from '@/components/BaseSection.vue'
 import ProductCard from '@/components/ProductCard.vue'
+import ProductCarousel from '@/components/ProductCarousel.vue'
 import CertLeapingBunny from '@/components/CertLeapingBunny.vue'
 import CertEcoCert from '@/components/CertEcoCert.vue'
 import CertVegano from '@/components/CertVegano.vue'
@@ -67,6 +77,7 @@ export default {
     BaseButton,
     BaseSection,
     ProductCard,
+    ProductCarousel,
     CertLeapingBunny,
     CertEcoCert,
     CertVegano
