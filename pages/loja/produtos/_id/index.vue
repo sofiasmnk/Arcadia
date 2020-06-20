@@ -21,7 +21,7 @@
           <div class="flex items-center mt-3">
             <StarRating class="text-brown fill-current" />
             <span class="ml-3">(5)</span>
-            <nuxt-link class="ml-3" to="#aval">Avaliar</nuxt-link>
+            <a v-scroll-to="'#aval'" class="ml-3" href="#aval">Avaliar</a>
           </div>
         </div>
 
@@ -31,8 +31,7 @@
             mi. Curabitur nisi est, tempor volutpat purus nec, efficitur dictum
             nunc.
           </p>
-
-          <nuxt-link to="#desc">Ver mais</nuxt-link>
+          <a v-scroll-to="'#desc'" href="#desc">Ver mais</a>
         </div>
         <div class="mb-4">
           <span

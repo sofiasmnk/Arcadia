@@ -1,5 +1,6 @@
 <template>
   <div
+    id="navbar-cart"
     class="z-50 bg-white absolute border border-t-0 shadow-md right-0 lg:mr-1 w-screen lg:w-auto mt-6 lg:mt-0"
   >
     <div class="p-5 pt-3 container mx-auto relative">
@@ -28,7 +29,12 @@
 
       <div class="flex mt-5">
         <div class="w-1/2 pr-2">
-          <BaseButton class="w-full" :type-secondary="true" :size-small="true">
+          <BaseButton
+            class="w-full"
+            :type-secondary="true"
+            :size-small="true"
+            @click.native="goToCart()"
+          >
             Ver carrinho
           </BaseButton>
         </div>
@@ -51,7 +57,7 @@
 </template>
 
 <script>
-import { mapState, mapGetters } from 'vuex'
+import { mapState, mapGetters, mapActions } from 'vuex'
 
 import BaseButton from '@/components/BaseButton.vue'
 import NavBarCartItem from '@/components/NavBarCartItem.vue'
@@ -87,6 +93,19 @@ export default {
         currency: 'BRL'
       })
       return reais.format(this.total)
+    }
+  },
+  methods: {
+    ...mapActions(['closeCart', 'closeMenu']),
+    closeAll() {
+      this.closeCart()
+      this.closeMenu()
+    },
+    goToCart() {
+      this.closeAll()
+      this.$router.push({
+        path: `/loja/carrinho`
+      })
     }
   }
 }

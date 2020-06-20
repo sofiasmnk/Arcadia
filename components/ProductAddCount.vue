@@ -23,7 +23,11 @@
         +
       </button>
     </div>
-    <BaseButton class="flex items-center ml-2" @click.native="addToCart()">
+    <BaseButton
+      v-scroll-to="'#navbar'"
+      class="flex items-center ml-2"
+      @click.native="addToCart()"
+    >
       <IconCart class="h-6 w-6 text-white fill-current mr-3" />
       Adicionar ao carrinho
     </BaseButton>
@@ -52,7 +56,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['addItemToCart']),
+    ...mapActions(['addItemToCart', 'openCart']),
     increase() {
       this.quantity++
     },
@@ -62,6 +66,7 @@ export default {
     addToCart() {
       this.addItemToCart({ id: this.productId, quantity: this.quantity })
       this.quantity = 1
+      this.openCart()
     }
   }
 }

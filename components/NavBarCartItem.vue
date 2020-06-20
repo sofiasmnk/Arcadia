@@ -1,7 +1,7 @@
 <template>
   <div class="w-full flex p-1">
-    <div class="w-24 box-content p-1 bg-green-lighter border shadow-sm">
-      <img :src="imgUrl" class="h-24 w-24 object-cover" alt="" />
+    <div class="w-16 box-content p-1 bg-green-lighter border shadow-sm">
+      <img :src="imgUrl" class="h-16 w-16 object-cover" alt="" />
     </div>
     <div class="flex-grow flex flex-col justify-between w-64 pl-3">
       <div class="flex justify-between items-start">

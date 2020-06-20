@@ -1,6 +1,6 @@
 <template>
   <div
-    class="border border-green-light rounded w-24 flex justify-center items-center overflow-hidden"
+    class="border border-green-light bg-white rounded w-24 flex justify-center items-center overflow-hidden"
   >
     <span class="w-12 text-center order-2">
       {{ item.quantity }}

@@ -32,6 +32,7 @@
       </div>
     </div>
     <button
+      v-scroll-to="'#navbar'"
       :aria-label="buttonLabel"
       class="absolute right-0 -mt-5 mr-5 z-40
       flex p-2 bg-green rounded-full
@@ -84,9 +85,10 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['addItemToCart']),
+    ...mapActions(['addItemToCart', 'openCart']),
     addProductToCart() {
       this.addItemToCart({ id: this.product.id, quantity: 1 })
+      this.openCart()
     },
     navigate() {
       this.$router.push({

@@ -46,7 +46,8 @@ export default {
    */
   modules: [
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
+    'vue-scrollto/nuxt'
   ],
   /*
    ** Build configuration

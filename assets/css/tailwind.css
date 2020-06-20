@@ -22,8 +22,8 @@ input::placeholder {
   @apply text-green;
 }
 
-input[type='number'] {
-  appearance: textfield;
+input[type='text'] {
+  @apply border rounded px-3 border-green h-10;
 }
 
 .dropdown-enter-active,

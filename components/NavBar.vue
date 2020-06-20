@@ -1,5 +1,5 @@
 <template>
-  <header class="lg:py-5" aria-label="Cabeçalho">
+  <header id="navbar" class="lg:py-5" aria-label="Cabeçalho">
     <div class="navbg h-20" aria-hidden="true"></div>
     <div
       class="container mx-auto sm:px-5 flex justify-around sm:justify-between align-middle items-center"
@@ -25,16 +25,16 @@
           icon-name="menu"
           class="lg:hidden"
           :class="[menuOpen ? 'navbar-button-open' : 'navbar-button-closed']"
-          @click.native="toggleMenu()"
+          @click.native="toggleMenuCloseCart()"
         />
         <div
           class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-24 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0 origin-top"
           :class="[menuOpen ? 'block' : 'hidden']"
         >
-          <NavBarLink url="/" label="Início" />
-          <NavBarLink url="/loja" label="Loja" />
-          <NavBarLink url="/sobre" label="Sobre" />
-          <NavBarLink url="/contato" label="Contato" />
+          <NavBarLink url="/" label="Início" @click.native="closeAll" />
+          <NavBarLink url="/loja" label="Loja" @click.native="closeAll" />
+          <NavBarLink url="/sobre" label="Sobre" @click.native="closeAll" />
+          <NavBarLink url="/contato" label="Contato" @click.native="closeAll" />
         </div>
       </nav>
 
@@ -47,7 +47,7 @@
           <NavBarButton
             icon-name="cart"
             :class="[cartOpen ? 'navbar-button-open' : 'navbar-button-closed']"
-            @click.native="toggleCart()"
+            @click.native="toggleCartCloseMenu()"
           />
           <NavBarCart v-show="cartOpen" />
         </div>
@@ -57,6 +57,8 @@
 </template>
 
 <script>
+import { mapState, mapActions } from 'vuex'
+
 import StoreLogo from '@/components/StoreLogo.vue'
 import NavBarLink from '@/components/NavBarLink.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
@@ -71,20 +73,22 @@ export default {
     NavBarCart,
     NavBarButton
   },
-  data() {
-    return {
-      cartOpen: false,
-      menuOpen: false
-    }
+  computed: {
+    ...mapState(['menuOpen', 'cartOpen'])
   },
   methods: {
-    toggleCart() {
-      this.menuOpen = false
-      this.cartOpen = !this.cartOpen
+    ...mapActions(['toggleCart', 'toggleMenu', 'closeCart', 'closeMenu']),
+    toggleCartCloseMenu() {
+      this.closeMenu()
+      this.toggleCart()
     },
-    toggleMenu() {
-      this.cartOpen = false
-      this.menuOpen = !this.menuOpen
+    toggleMenuCloseCart() {
+      this.closeCart()
+      this.toggleMenu()
+    },
+    closeAll() {
+      this.closeCart()
+      this.closeMenu()
     }
   }
 }
