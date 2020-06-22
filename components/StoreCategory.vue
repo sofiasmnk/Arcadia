@@ -11,16 +11,17 @@
       Ver todos
     </button>
 
-    <div class="loja-product-list flex flex-wrap">
-      <transition-group name="list" tag="div">
-        <div
-          v-for="product in listByQuantity"
-          :key="product.id"
-          class="w-1/2 xl:w-1/4 p-4 list-item"
-        >
-          <ProductCard :product="product" />
-        </div>
-      </transition-group>
+    <div
+      class="flex flex-wrap"
+      :class="[open ? 'product-list-open' : 'product-list-closed']"
+    >
+      <div
+        v-for="product in listByQuantity"
+        :key="product.id"
+        class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4"
+      >
+        <ProductCard :product="product" />
+      </div>
     </div>
   </section>
 </template>
@@ -50,7 +51,7 @@ export default {
   },
   computed: {
     quantity() {
-      if (this.open) return 8
+      if (this.open) return 1000
       else return 4
     },
     listByQuantity() {
@@ -78,19 +79,11 @@ export default {
   }
 }
 
-.list-item {
-  display: inline-block;
+.product-list-closed {
+  height: 17rem;
+  overflow: hidden;
 }
-.list-enter-active,
-.list-leave-active {
-  transition: all 300ms;
-}
-.list-enter, .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-  @apply opacity-0;
-  transform: translateY(-1em);
-}
-
-.loja-product-list > div {
-  @apply w-full;
+.product-list-open {
+  height: auto;
 }
 </style>
