@@ -93,7 +93,7 @@
       <div class="w-full md:w-1/3 p-4">
         <div class="rounded border border-brown-lighter p-4">
           <form>
-            <label class="block text-sm mb-2" for="cupom">Cupom</label>
+            <label class="block mb-2" for="cupom">Cupom</label>
             <div class="flex flex-wrap items-center">
               <div
                 class="w-2/3 md:w-full lg:w-2/3 pr-2 md:pr-0 lg:pr-2 md:mb-2 lg:mb-0"
@@ -122,7 +122,7 @@
       <div class="w-full md:w-1/3 p-4">
         <div class="rounded border border-brown-lighter p-4">
           <form>
-            <label class="block text-sm mb-2" for="frete">Frete</label>
+            <label class="block mb-2" for="frete">Frete</label>
             <div class="flex flex-wrap items-center">
               <div
                 class="w-2/3 md:w-full lg:w-2/3 pr-2 md:pr-0 lg:pr-2 md:mb-2 lg:mb-0"

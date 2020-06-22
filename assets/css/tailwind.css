@@ -22,8 +22,12 @@ input::placeholder {
   @apply text-green;
 }
 
-input[type='text'] {
-  @apply border rounded px-3 border-green h-10;
+input {
+  @apply border rounded px-3 border-green-light h-10;
+}
+
+label {
+  @apply text-sm;
 }
 
 .dropdown-enter-active,

@@ -64,7 +64,7 @@ export default {
 .see-all-button {
   @apply text-sm text-green font-semibold;
   &::after {
-    @apply mb-px mr-1 border-r-2 border-b-2 border-green inline-block transition duration-200;
+    @apply mb-px border-r-2 border-b-2 border-green inline-block transition duration-200;
     padding: 0.2em;
     content: '';
   }

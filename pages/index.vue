@@ -33,7 +33,7 @@
         <ProductCarousel class="lg:hidden" :product-list="pinnedProducts" />
       </div>
 
-      <div class="w-full lg:w-1/2 xl:w-1/4 p-4">
+      <div class="w-full lg:w-1/3 xl:w-1/4 p-4">
         <h2 class="inline text-lg font-semibold">
           Explore nossos produtos,
         </h2>
@@ -45,9 +45,10 @@
       </div>
 
       <div
-        v-for="product in pinnedProducts"
+        v-for="(product, index) in pinnedProducts"
         :key="product.id"
-        class="hidden lg:block w-1/2 xl:w-1/4 p-4"
+        class="hidden xl:block w-1/3 xl:w-1/4 p-4"
+        :class="[index < 5 ? 'lg:block' : '']"
       >
         <ProductCard :product="product" />
       </div>
