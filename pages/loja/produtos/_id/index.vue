@@ -62,7 +62,7 @@
 
     <BaseSection>
       <div class="w-full p-4">
-        <h2 class="text-lg font-semibold">Descrição</h2>
+        <h2 class="text-xl font-semibold">Descrição</h2>
         <p class="mt-4">
           Mauris erat sapien, consectetur eget tellus nec, gravida vulputate mi.
           Curabitur nisi est, tempor volutpat purus nec, efficitur dictum nunc.
@@ -79,14 +79,14 @@
         </p>
       </div>
       <div class="w-full sm:w-1/2 p-4 mt-4">
-        <h2 class="text-lg font-semibold">Ingredientes</h2>
+        <h3 class="text-lg font-semibold">Ingredientes</h3>
         <p class="mt-4">
           Mauris, erat, sapien, consectetur, eget tellus nec, gravida, vulputate
           mi.
         </p>
       </div>
       <div class="w-full sm:w-1/2 p-4 mt-4">
-        <h2 class="text-lg font-semibold">Detalhes</h2>
+        <h3 class="text-lg font-semibold">Detalhes</h3>
         <ul class="mt-4">
           <li>Peso: 100g</li>
           <li>Dimensões: 10 × 5 × 2 cm</li>
@@ -98,6 +98,24 @@
 
     <BaseSection>
       <ProductReviews />
+    </BaseSection>
+
+    <BaseSeparator />
+
+    <BaseSection>
+      <div class="w-full">
+        <h2 class="text-xl font-semibold p-4">Itens similares</h2>
+        <ul class="flex flex-wrap">
+          <li
+            v-for="(similarProduct, index) in similarProducts"
+            :key="similarProduct.id"
+            class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4"
+            :class="[index === 3 ? 'lg:hidden xl:block' : '']"
+          >
+            <ProductCard :product="similarProduct" />
+          </li>
+        </ul>
+      </div>
     </BaseSection>
   </main>
 </template>
@@ -112,6 +130,7 @@ import StarRating from '@/components/StarRating.vue'
 import ProductImageSlide from '@/components/ProductImageSlide.vue'
 import ProductAddCount from '@/components/ProductAddCount.vue'
 import ProductReviews from '@/components/ProductReviews.vue'
+import ProductCard from '@/components/ProductCard.vue'
 
 export default {
   components: {
@@ -121,14 +140,19 @@ export default {
     StarRating,
     ProductImageSlide,
     ProductAddCount,
-    ProductReviews
+    ProductReviews,
+    ProductCard
   },
   computed: {
     ...mapGetters({
-      productsById: 'products/getById'
+      productsById: 'products/getById',
+      productsByType: 'products/getByType'
     }),
     product() {
       return this.productsById(this.$route.params.id)
+    },
+    similarProducts() {
+      return this.productsByType(this.product.type).slice(0, 4)
     },
     imgUrl() {
       return require(`~/assets/img/produtos/${this.product.id}.jpg`)
@@ -159,14 +183,14 @@ export default {
     }
     & ~ span::after {
       @apply absolute left-0 bottom-0 h-2 w-2 rounded-full ml-1;
-      margin-bottom: 0.38em;
+      margin-bottom: 0.4em;
       content: '';
-    }
-    &:checked ~ span::after {
-      @apply bg-green;
     }
     &:focus ~ span::after {
       @apply bg-green-light;
+    }
+    &:checked ~ span::after {
+      @apply bg-green;
     }
   }
 }

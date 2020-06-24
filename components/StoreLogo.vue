@@ -3,10 +3,9 @@
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 185.87 156.89"
     role="img"
-    aria-labelledby="ArcadiaLogoTitle ArcadiaLogoDesc"
+    aria-labelledby="ArcadiaLogoTitle"
   >
-    <title id="ArcadiaLogoTitle">Logo da Arcádia Cosméticos</title>
-    <desc id="ArcadiaLogoDesc">Clique para ir para a página inicial</desc>
+    <title id="ArcadiaLogoTitle">Página inicial da Arcádia Cosméticos</title>
     <path
       class="a"
       d="M97.93,38.39c.11-1.37.17-2.8.17-4.27,0-10.22-4.69-21-8-21s-12.39,10.77-12.39,21a15.26,15.26,0,0,0,.93,5.17,59.49,59.49,0,1,0,19.29-.9Z"

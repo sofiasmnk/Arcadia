@@ -3,8 +3,11 @@
     <div
       class="border border-green-light rounded w-24 flex justify-center items-center overflow-hidden"
     >
-      <span class="w-12 text-center order-2">
+      <span class="w-12 text-center order-2" aria-hidden="true">
         {{ quantity }}
+      </span>
+      <span class="sr-only" aria-live="polite">
+        Quantidade: {{ quantity }}.
       </span>
       <button
         class="text-xl order-1 flex-grow h-full px-2"
@@ -12,12 +15,14 @@
           quantity > 1 ? 'text-green hover:bg-green-lighter' : 'text-gray-400'
         ]"
         :disabled="quantity <= 1"
+        aria-label="Diminuir quantidade"
         @click="decrease()"
       >
         –
       </button>
       <button
         class="text-xl text-green order-3 flex-grow hover:bg-green-lighter h-full px-2"
+        aria-label="Aumentar quantidade"
         @click="increase()"
       >
         +
@@ -26,6 +31,7 @@
     <BaseButton
       v-scroll-to="'#navbar'"
       class="flex items-center ml-2"
+      :aria-label="addToCartLabel"
       @click.native="addToCart()"
     >
       <IconCart class="h-6 w-6 text-white fill-current mr-3" />
@@ -53,6 +59,12 @@ export default {
   data() {
     return {
       quantity: 1
+    }
+  },
+  computed: {
+    addToCartLabel() {
+      if (this.quantity === 1) return `Adicionar uma unidade ao carrinho`
+      else return `Adicionar ${this.quantity} unidades ao carrinho`
     }
   },
   methods: {

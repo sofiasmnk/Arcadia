@@ -40,7 +40,12 @@
         <span>{{ formatPrice(total) }}</span>
       </div>
     </div>
-    <BaseButton type-secondary size-small class="w-full">
+    <BaseButton
+      type-secondary
+      size-small
+      class="w-full"
+      @click.native="goToCart()"
+    >
       Voltar para carrinho
     </BaseButton>
   </div>
@@ -80,6 +85,11 @@ export default {
     },
     subtotal(item) {
       return item.product.price * item.quantity
+    },
+    goToCart() {
+      this.$router.push({
+        path: `/loja/carrinho`
+      })
     }
   }
 }

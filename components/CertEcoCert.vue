@@ -1,5 +1,11 @@
 <template>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192.76 192.76">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 192.76 192.76"
+    role="img"
+    aria-labelledby="CertEcoCert"
+  >
+    <title id="CertEcoCert">Certificado pela Ecocert</title>
     <path
       fill="#fff"
       fill-rule="evenodd"

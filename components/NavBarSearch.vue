@@ -41,7 +41,13 @@
             focus = false
           "
         />
-        <input class="sr-only" type="submit" value="Buscar" tabindex="-1" />
+        <input
+          class="invisible"
+          aria-hidden
+          type="submit"
+          value="Buscar"
+          tabindex="-1"
+        />
       </form>
     </div>
   </div>

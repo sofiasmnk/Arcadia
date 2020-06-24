@@ -1,14 +1,36 @@
 <template>
   <div class="w-full flex p-1">
-    <div class="w-16 box-content p-1 bg-green-lighter border shadow-sm">
-      <img :src="imgUrl" class="h-16 w-16 object-cover" alt="" />
+    <div
+      v-lazy-container="{ selector: 'img' }"
+      class="w-16 box-content p-1 bg-green-lighter border shadow-sm"
+    >
+      <img
+        :data-src="imgUrl"
+        :data-loading="imgLoading"
+        class="h-16 w-16 object-cover"
+        :alt="imgAlt"
+        aria-hidden="true"
+      />
     </div>
     <div class="flex-grow flex flex-col justify-between w-64 pl-3">
       <div class="flex justify-between items-start">
-        <div>{{ item.product.name }}</div>
+        <div aria-live="polite">
+          {{ item.product.name }}
+          <span class="sr-only" aria-live="polite">
+            Quantidade: {{ item.quantity }}. Subtotal:
+            <span>{{ formattedPrice }}</span
+            >.
+          </span>
+        </div>
         <div>
-          <button class="mt-1" @click="removeItemFromCart(itemIndex)">
-            <IconClose class="text-green fill-current h-6 w-6 " />
+          <button
+            :aria-label="removeButtonLabel"
+            @click="removeItemFromCart(itemIndex)"
+          >
+            <IconClose
+              class="text-green fill-current h-6 w-6"
+              alt="Ícone fechar"
+            />
           </button>
         </div>
       </div>
@@ -18,7 +40,9 @@
           :item-index="itemIndex"
           class="my-1 h-8"
         />
-        <span class="font-semibold">{{ formattedPrice }}</span>
+        <span class="font-semibold" aria-hidden="true">
+          {{ formattedPrice }}
+        </span>
       </div>
     </div>
   </div>
@@ -57,6 +81,15 @@ export default {
     },
     imgUrl() {
       return require(`~/assets/img/produtos/${this.item.product.id}.jpg`)
+    },
+    imgLoading() {
+      return require(`~/assets/img/produtos/${this.item.product.id}.jpg?lqip`)
+    },
+    imgAlt() {
+      return `Imagem do produto ${this.item.product.name}`
+    },
+    removeButtonLabel() {
+      return `Remover ${this.item.product.name} do carrinho`
     }
   },
   methods: {

@@ -11,18 +11,20 @@
     <img
       class="h-32 w-full object-cover rounded rounded-b-none "
       :src="imgUrl"
-      alt=""
+      :alt="imgAlt"
+      aria-hidden="true"
     />
     <div class="p-4 relative">
-      <h5 class="text-lg z-50 truncate">
+      <h2 class="text-lg z-50 truncate">
         <nuxt-link
           :to="`/loja/produtos/${product.id}`"
           class="text-black font-semibold no-underline hover:underline hover:text-black"
         >
           {{ product.name }}
         </nuxt-link>
-      </h5>
+      </h2>
       <div class="flex items-center mt-3">
+        <span class="sr-only">Preço: </span>
         <span
           class="rounded inline-block px-2 py-1 bg-brown-lighter font-semibold"
         >
@@ -40,6 +42,7 @@
       @click="addProductToCart()"
     >
       <IconCart
+        tooltip
         aria-hidden="true"
         class="h-6 w-6 text-white fill-current self-center"
       />
@@ -79,6 +82,9 @@ export default {
     },
     imgUrl() {
       return require(`~/assets/img/produtos/${this.product.id}.jpg`)
+    },
+    imgAlt() {
+      return `Imagem do produto ${this.product.name}`
     },
     buttonLabel() {
       return `Adicionar ${this.product.name} ao carrinho`

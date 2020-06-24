@@ -3,19 +3,23 @@
     class="h-20 w-16 sm:w-24 relative flex justify-center sm:mx-1 transition duration-200"
   >
     <template v-if="iconName === 'menu'">
-      <IconMenu class="h-6 w-6 text-green fill-current self-center" />
+      <IconMenu
+        aria-label="Menu"
+        class="h-6 w-6 text-green fill-current self-center"
+      />
     </template>
     <template v-if="iconName === 'cart'">
+      <IconCart
+        aria-label="Carrinho de compras"
+        class="h-6 w-6 text-green fill-current self-center"
+      />
       <span
         v-show="shoppingCart.length > 0"
-        class="absolute h-4 w-4 text-sm rounded-full flex justify-center items-center text-green mt-3 ml-6"
+        class="absolute top-0 right-0 h-4 w-4 text-sm rounded-full flex justify-center items-center text-green mt-3 mr-3 sm:mr-6"
+        :aria-label="`Itens no carrinho:${shoppingCart.length}`"
       >
         {{ shoppingCart.length }}
       </span>
-      <IconCart
-        aria-hidden="true"
-        class="h-6 w-6 text-green fill-current self-center"
-      />
     </template>
   </button>
 </template>

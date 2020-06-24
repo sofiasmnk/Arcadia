@@ -1,17 +1,23 @@
 <template>
-  <div class="w-full md:h-full flex flex-col">
+  <div
+    v-lazy-container="{ selector: 'img' }"
+    class="w-full md:h-full flex flex-col"
+  >
     <div class="px-1 relative flex-1">
       <button
         class="arrow arrow-left absolute opacity-75 hover:opacity-100 h-full left-0 px-2"
+        aria-label="Imagem anterior"
         @click="decrementIndex()"
       ></button>
       <button
         class="arrow arrow-right absolute opacity-75 hover:opacity-100 h-full right-0 px-2"
+        aria-label="Próxima imagem"
         @click="incrementIndex()"
       ></button>
       <img
-        :src="imgUrl"
-        alt=""
+        :data-src="imgUrl"
+        :data-loading="imgLoading"
+        :alt="imgAlt"
         class="h-64 w-full md:h-full object-cover rounded"
       />
     </div>
@@ -23,8 +29,9 @@
         @click="changeIndex(index)"
       >
         <img
-          :src="imgUrl"
-          alt=""
+          :data-src="imgUrl"
+          :data-loading="imgLoading"
+          :alt="thumbAlt(index)"
           class="h-full w-full object-cover rounded transition duration-200"
           :class="
             index == imgIndex ? 'opacity-25' : 'opacity-100 hover:opacity-25'
@@ -53,6 +60,12 @@ export default {
   computed: {
     imgUrl() {
       return require(`~/assets/img/produtos/${this.product.id}.jpg`)
+    },
+    imgLoading() {
+      return require(`~/assets/img/produtos/${this.product.id}.jpg?lqip`)
+    },
+    imgAlt() {
+      return `Imagem ${this.imgIndex} do produto ${this.product.name}`
     }
   },
   methods: {
@@ -66,6 +79,9 @@ export default {
     },
     changeIndex(index) {
       this.imgIndex = index
+    },
+    thumbAlt(index) {
+      return `Ver imagem ${index} do produto ${this.product.name}`
     }
   }
 }

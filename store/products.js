@@ -87,7 +87,7 @@ export const state = () => ({
     {
       id: '13',
       name: 'Desodorante de lavanda',
-      price: 'R$',
+      price: 15.0,
       type: 'Corpo',
       pinned: false
     },
@@ -121,8 +121,8 @@ export const state = () => ({
     },
     {
       id: '18',
-      name: '',
-      price: 'R$',
+      name: 'Máscara capilar de côco',
+      price: 40.0,
       type: 'Cabelo',
       pinned: false
     }

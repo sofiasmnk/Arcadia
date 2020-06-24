@@ -25,9 +25,9 @@ export default {
 
 <style lang="postcss">
 .purchase-progress {
-  @apply h-20 relative border-t-2 border-green-lighter mt-10 mb-10;
+  @apply h-20 relative border-t-2 border-green-lighter mt-10 mb-10 relative;
   &::after {
-    @apply absolute bg-white -mt-1 p-3 right-0;
+    @apply absolute bg-white -mt-1 p-3 right-0 z-0;
     width: 2.2em;
     content: '';
   }
@@ -37,7 +37,7 @@ export default {
     content: '';
   }
   & li {
-    @apply inline-block relative text-sm text-green -mt-10;
+    @apply inline-block relative text-sm text-green -mt-10 z-10;
     @apply w-20 h-20 rounded-full;
     &.purchase-progress-current {
       @apply bg-green-lighter;

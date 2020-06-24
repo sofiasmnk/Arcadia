@@ -3,10 +3,17 @@
     <BaseBreadcrumbs>
       <li><nuxt-link to="/">Início</nuxt-link></li>
       <li><nuxt-link to="/loja">Loja</nuxt-link></li>
-      <li>Carrinho de compras</li>
+      <li>Carrinho</li>
     </BaseBreadcrumbs>
 
-    <BaseSection>
+    <BaseSection v-if="shoppingCart.length === 0">
+      <div class="w-full p-4 text-center">
+        O carrinho está vazio.
+        <nuxt-link to="/loja">Ir para loja</nuxt-link>.
+      </div>
+    </BaseSection>
+
+    <BaseSection v-if="shoppingCart.length > 0">
       <div class="w-full p-4">
         <table
           class="text-left w-full relative table-fixed overflow-hidden md:border border-brown-lighter"

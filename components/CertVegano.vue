@@ -1,11 +1,13 @@
 <template>
   <svg
-    id="Camada_1"
     xmlns="http://www.w3.org/2000/svg"
-    data-name="Camada 1"
     viewBox="0 0 389.3 389.2"
+    role="img"
+    aria-labelledby="CertVegano"
   >
-    <defs />
+    <title id="CertVegano">
+      Certificado Vegano pela Sociedade Vegetariana Brasileira
+    </title>
     <defs>
       <style>
         .cls-1 {

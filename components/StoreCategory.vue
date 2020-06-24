@@ -11,18 +11,18 @@
       Ver todos
     </button>
 
-    <div
+    <ul
       class="flex flex-wrap"
       :class="[open ? 'product-list-open' : 'product-list-closed']"
     >
-      <div
+      <li
         v-for="product in listByQuantity"
         :key="product.id"
         class="w-full sm:w-1/2 lg:w-1/3 xl:w-1/4 p-4"
       >
         <ProductCard :product="product" />
-      </div>
-    </div>
+      </li>
+    </ul>
   </section>
 </template>
 

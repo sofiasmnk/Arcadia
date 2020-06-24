@@ -1,10 +1,14 @@
 <template>
   <svg
-    id="LeapingBunny"
     xmlns="http://www.w3.org/2000/svg"
-    data-name="Leaping Bunny"
     viewBox="0 0 257.6 257.6"
+    role="img"
+    aria-labelledby="CertLeapingBunny"
   >
+    <title id="CertLeapingBunny">
+      Certificado <span lang="en-us">cruelty free</span> pela <span
+      lang="en-us">Leaping Bunny</span>
+    </title>
     <path
       d="M108.4 86.6s12.8-7.6 27.4-4.8 37.7 19.2 48.3 39.7c0 0 19 .5 19.7 7.8s-11.8 15.2-21.3 13.6c0 0 .4-2.6 5.7-4s6.6-8.4 6.6-8.4-6.3-3.6-15-.2c0 0-11-20.8-28.1-31.7s-24.1-12.8-43.3-10.8zM137.2 141.9s20.3 32.3 41 32.3 20.6-11.6 20.6-11.6a33.8 33.8 0 002.6 11.6c4.2 9.6 13.4 20.4 28.1 14.6a1.8 1.8 0 00.4-1 1.3 1.3 0 00-.4-1s-16.6-3.2-25.7-29.8c0 0-1.8-7.3-3-6.3S190.4 170 176.2 166 144.3 149.5 140 142c0 0-5-3.2-2.8 0z"
       class="cls-2"

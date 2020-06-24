@@ -1,7 +1,9 @@
 <template>
-  <div>
+  <div class="flex flex-col justify-between min-h-screen">
     <NavBar />
-    <nuxt />
+    <div class="flex-grow">
+      <nuxt />
+    </div>
     <SiteFooter />
   </div>
 </template>
@@ -17,5 +19,3 @@ export default {
   }
 }
 </script>
-
-<style lang="postcss"></style>

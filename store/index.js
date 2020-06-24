@@ -14,6 +14,9 @@ export const mutations = {
   REMOVE_FROM_CART(state, index) {
     state.shoppingCart.splice(index, 1)
   },
+  EMPTY_CART(state) {
+    state.shoppingCart.splice(0, state.shoppingCart.length)
+  },
   CHANGE_QUANTITY(state, { index, quantity }) {
     state.shoppingCart[index].quantity = quantity
   },
@@ -48,6 +51,9 @@ export const actions = {
   },
   removeItemFromCart({ state, commit }, index) {
     commit('REMOVE_FROM_CART', index)
+  },
+  emptyCart({ state, commit }) {
+    commit('EMPTY_CART')
   },
   closeCart({ state, commit }) {
     commit('CLOSE_CART')

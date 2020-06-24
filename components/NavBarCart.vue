@@ -7,9 +7,9 @@
       <ol class="divide-y divide-brown-lighter">
         <li v-if="shoppingCart.length === 0">
           <div class="w-full flex py-4 justify-center">
-            <div class="w-12"></div>
-            <div class="w-64 text-center">O carrinho está vazio</div>
-            <div class="w-12"></div>
+            <div class="w-64 mx-10 text-center" aria-live="polite">
+              O carrinho está vazio
+            </div>
           </div>
         </li>
         <li
@@ -23,33 +23,40 @@
 
       <hr class="mb-4 border-brown-lighter" aria-hidden="true" />
 
-      <div class="text-right text-lg">
-        Total: <span class="font-semibold">{{ formattedTotal }}</span>
-      </div>
-
-      <div class="flex mt-5">
-        <div class="w-1/2 pr-2">
-          <BaseButton
-            class="w-full"
-            :type-secondary="true"
-            :size-small="true"
-            @click.native="goToCart()"
-          >
-            Ver carrinho
-          </BaseButton>
+      <div v-if="shoppingCart.length > 0">
+        <div class="text-right text-lg">
+          Total: <span class="font-semibold">{{ formattedTotal }}</span>
         </div>
-        <div class="w-1/2 pl-2">
-          <BaseButton class="w-full" :size-small="true">
-            Finalizar compra
-          </BaseButton>
+
+        <div class="flex mt-5">
+          <div class="w-1/2 pr-2">
+            <BaseButton
+              class="w-full"
+              :type-secondary="true"
+              :size-small="true"
+              @click.native="goToCart()"
+            >
+              Ver carrinho
+            </BaseButton>
+          </div>
+          <div class="w-1/2 pl-2">
+            <BaseButton
+              class="w-full"
+              :size-small="true"
+              @click.native="goToPurchase()"
+            >
+              Finalizar compra
+            </BaseButton>
+          </div>
         </div>
       </div>
 
       <div class="mt-5">
         Com um cadastro, você pode guardar seus dados para compras futuras.
         <p class="mt-2">
-          <nuxt-link to="/">Entrar</nuxt-link> /
-          <nuxt-link to="/">Cadastrar</nuxt-link>
+          <nuxt-link to="#">Entrar</nuxt-link>
+          <span aria-hidden="true"> / </span>
+          <nuxt-link to="#">Cadastrar</nuxt-link>
         </p>
       </div>
     </div>
@@ -105,6 +112,12 @@ export default {
       this.closeAll()
       this.$router.push({
         path: `/loja/carrinho`
+      })
+    },
+    goToPurchase() {
+      this.closeAll()
+      this.$router.push({
+        path: `/loja/carrinho/finalizar`
       })
     }
   }
