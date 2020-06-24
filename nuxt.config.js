@@ -31,7 +31,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: '~/plugins/vue-lazyload', ssr: false }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -39,8 +39,12 @@ export default {
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
     // Doc: https://github.com/nuxt-community/nuxt-tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@aceforth/nuxt-optimized-images'
   ],
+  optimizedImages: {
+    optimizeImages: true
+  },
   /*
    ** Nuxt.js modules
    */
@@ -57,5 +61,14 @@ export default {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
+  },
+  generate: {
+    routes() {
+      const productRoutes = []
+      for (let i = 1; i <= 18; i++) {
+        productRoutes.push(`/loja/produtos/${i}`)
+      }
+      return productRoutes
+    }
   }
 }
