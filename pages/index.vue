@@ -13,9 +13,9 @@
         <div
           class="flex justify-between items-center sm:justify-around mt-6 px-4"
         >
-          <CertLeapingBunny class="h-24 w-24" />
-          <CertEcoCert class="h-24 w-24" />
-          <CertVegano class="h-20 w-20" />
+          <CertLeapingBunny class="h-20 w-20 sm:h-24 sm:w-24" />
+          <CertEcoCert class="h-20 w-20 sm:h-24 sm:w-24" />
+          <CertVegano class="h-16 w-16 sm:h-20 sm:w-20" />
         </div>
       </div>
       <div

@@ -45,7 +45,14 @@ export default {
 
 <style lang="postcss">
 @import 'node_modules/swiper/css/swiper.css';
-.swiper-slide {
-  width: 60%;
+@media (max-width: 640px) {
+  .swiper-slide {
+    width: 76%;
+  }
+}
+@media (min-width: 641px) {
+  .swiper-slide {
+    width: 60%;
+  }
 }
 </style>

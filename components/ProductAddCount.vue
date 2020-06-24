@@ -34,8 +34,10 @@
       :aria-label="addToCartLabel"
       @click.native="addToCart()"
     >
-      <IconCart class="h-6 w-6 text-white fill-current mr-3" />
-      Adicionar ao carrinho
+      <IconCart
+        class="h-4 w-4 sm:h-6 sm:w-6 text-white fill-current mr-2 -ml-2 sm:ml-0"
+      />
+      <span class="text-sm sm:text-base">Adicionar ao carrinho</span>
     </BaseButton>
   </div>
 </template>
