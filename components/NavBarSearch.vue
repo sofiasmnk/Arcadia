@@ -43,7 +43,7 @@
         />
         <input
           class="invisible"
-          aria-hidden
+          aria-hidden="true"
           type="submit"
           value="Buscar"
           tabindex="-1"

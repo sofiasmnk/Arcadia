@@ -156,6 +156,17 @@
                 />
               </label>
             </div>
+            <div class="w-1/2" :class="[createAccount ? 'block' : 'hidden']">
+              <label class="flex flex-col m-2 mt-0">
+                Confirmar Senha
+                <input
+                  class="mt-2"
+                  type="password"
+                  :required="createAccount"
+                  placeholder="Senha"
+                />
+              </label>
+            </div>
             <h2 class="w-full text-lg font-semibold p-2 mt-4">Entrega</h2>
             <div class="w-full">
               <label class="m-2 flex items-center">
@@ -319,7 +330,7 @@
               form="pagamento"
               @click.native="stepThree"
             >
-              <span class="arrow-next">Confirmação</span>
+              <span class="arrow-next">Revisão</span>
             </BaseButton>
           </div>
         </div>
@@ -421,7 +432,7 @@ export default {
       validCep: false,
       validDeliveryCep: false,
       createAccount: false,
-      sameAddress: true,
+      sameAddress: false,
       user: {
         validCep: false,
         name: '',

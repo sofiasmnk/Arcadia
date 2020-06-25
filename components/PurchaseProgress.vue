@@ -7,7 +7,7 @@
       <span>Pagamento</span>
     </li>
     <li :class="[purchaseStep == 3 ? 'purchase-progress-current' : '']">
-      <span>Cofirmar</span>
+      <span>Revisão</span>
     </li>
   </ol>
 </template>
@@ -25,7 +25,7 @@ export default {
 
 <style lang="postcss">
 .purchase-progress {
-  @apply h-20 relative border-t-2 border-green-lighter mt-10 mb-10 relative;
+  @apply h-20 relative border-t-2 border-green-lighter mt-10 mb-10;
   &::after {
     @apply absolute bg-white -mt-1 p-3 right-0 z-0;
     width: 2.2em;

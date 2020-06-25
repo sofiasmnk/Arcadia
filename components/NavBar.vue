@@ -31,6 +31,31 @@
           class="absolute lg:block w-screen lg:w-auto bg-green-lighter left-0 top-20 mt-24 flex flex-col lg:relative lg:flex-row lg:top-0 lg:mt-0 origin-top"
           :class="[menuOpen ? 'block' : 'hidden']"
         >
+          <div
+            v-if="menuOpen"
+            class="lg:hidden flex justify-center items-center"
+          >
+            <form class="h-16 box-content pb-6 relative">
+              <IconSearch
+                class="absolute h-6 w-6 text-green fill-current self-center opacity-100 right-0 mt-8 mr-2"
+                aria-hidden="true"
+              />
+              <input
+                class="border rounded mt-6 px-3 border-green h-10 w-full"
+                type="search"
+                name="Buscar"
+                placeholder="Buscar"
+                aria-label="Buscar no site"
+              />
+              <input
+                class="invisible"
+                aria-hidden="true"
+                type="submit"
+                value="Buscar"
+                tabindex="-1"
+              />
+            </form>
+          </div>
           <NavBarLink url="/" label="Início" @click.native="closeAll" />
           <NavBarLink url="/loja" label="Loja" @click.native="closeAll" />
           <NavBarLink url="/sobre" label="Sobre" @click.native="closeAll" />
@@ -64,6 +89,7 @@ import NavBarLink from '@/components/NavBarLink.vue'
 import NavBarSearch from '@/components/NavBarSearch.vue'
 import NavBarCart from '@/components/NavBarCart.vue'
 import NavBarButton from '@/components/NavBarButton.vue'
+import IconSearch from '@/components/IconSearch.vue'
 
 export default {
   components: {
@@ -71,7 +97,8 @@ export default {
     NavBarLink,
     NavBarSearch,
     NavBarCart,
-    NavBarButton
+    NavBarButton,
+    IconSearch
   },
   computed: {
     ...mapState(['menuOpen', 'cartOpen'])
